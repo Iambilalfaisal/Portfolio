@@ -1,0 +1,101 @@
+Muhammad Bilal Faisal
+
+Ai Engineer
+
+Bilalfaisal400@gmail.com Phone: 0322-4255722
+
+SUMMARY
+
+Passionate AI Engineer and Full-Stack Developer with hands-on experience in building intelligent web applications and integrating AI models with scalable backend solutions. I am skilled in React, .NET, MSSQL, and Python, with a strong foundation in Machine Learning, Deep Learning, and modern software engineering practices. Currently exploring Transformer architectures, Large Language Models (LLMs), and Retrieval-Augmented Generation (RAG) systems. Experienced in developing responsive web applications, RESTful APIs, and ML models for real-world business applications. Recognized for a proactive approach, data-driven problem-solving, and the ability to collaborate effectively with cross-functional teams to deliver measurable results. Adept at translating complex AI concepts into practical solutions that align with business goals and deliver tangible value.
+
+EDUCATION
+
+Bachelor of Science in Data Science                                                                                                                        2023 – 2027
+
+University of Management and Technology (UMT), Lahore
+
+SKILLS
+
+•	Python Programming	•	React.js	•	.NET Framework	•	MSSQL Database
+•	Machine Learning	•	TypeScript	•	C# Development	•	MySQL Database
+•	Deep Learning	•	JavaScript	•	RESTful APIs	•	Database Optimization
+•	Neural Networks	•	Git Version Control	•	Authentication Systems	•	Query Optimization
+•	Natural Language Processing	•	Postman API Testing	•	User Management Systems	•	Data Cleaning
+•	Transformers & LLMs	•	Cursor IDE	•	State Management	•	Exploratory Data Analysis
+•	RAG Systems	•	scikit-learn	•	Zustand	•	Feature Engineering
+•	Sentiment Analysis	•	pandas	•	React Query	•	Model Deployment
+•	Data Science	•	NumPy	•	Tailwind CSS	•	Performance Monitoring
+
+PROFESSIONAL EXPERIENCE
+
+Acme-One                                                                                                                                                        2025 – Till Date
+
+Working as a Full Stack Developer and Machine Learning / Data Science Intern at Acme-One, a technology-driven consulting and solutions provider. My role focuses on developing intelligent web applications that integrate AI capabilities with scalable backend infrastructure. I collaborate closely with cross-functional teams to build enterprise-grade solutions that enhance business operations and deliver measurable value to clients.
+
+Role: Full Stack (React / .NET / MSSQL) & ML/Data Science Intern
+
+Type: Full Time
+
+Tools:
+
+•	React.js with TypeScript
+•	.NET Framework (C#)
+•	MSSQL Server
+•	Python (scikit-learn, pandas, NumPy)
+•	Git for version control
+•	Postman for API testing
+•	Cursor IDE for development
+•	React Query and Zustand for state management
+
+Responsibilities:
+
+•	Built and deployed responsive web applications using React, .NET, and MSSQL, ensuring optimal performance and user experience across multiple devices and platforms
+
+•	Developed RESTful APIs with secure authentication and comprehensive user management systems, implementing best practices for security and scalability
+
+•	Collaborated with the AI team to integrate Machine Learning models using Python and scikit-learn, enabling intelligent features within web applications
+
+•	Improved database efficiency by optimizing queries, implementing proper indexing strategies, and enhancing data retrieval performance
+
+•	Developed ML models with Python, pandas, and scikit-learn, focusing on improving model accuracy through iterative refinement and feature engineering
+
+•	Performed comprehensive data cleaning, Exploratory Data Analysis (EDA), and feature engineering to enhance model performance and data quality
+
+•	Explored and implemented transformer-based architectures and Retrieval-Augmented Generation (RAG) systems for advanced AI capabilities
+
+•	Deployed Sentiment Analysis models and small-scale Machine Learning and Deep Learning models for classification tasks, demonstrating practical AI application
+
+•	Participated in code reviews, technical discussions, and sprint planning meetings to ensure code quality and alignment with project objectives
+
+•	Maintained and updated technical documentation, ensuring knowledge transfer and team collaboration
+
+PROJECTS
+
+NucleusOne Platform
+
+NucleusOne is a comprehensive business management platform that centralizes multiple integrated applications for organizations. I contributed to developing core features across various modules including TimeSheet-One, Project-One, Binary-One, and Ops-One. My responsibilities included building responsive user interfaces with React, developing secure backend APIs with .NET, and optimizing database queries in MSSQL. I also worked on integrating AI-powered features to enhance user experience and automate business processes.
+
+TimeSheet-One Application
+
+TimeSheet-One is a professional time tracking and project management platform designed to streamline team productivity. I was responsible for developing key features including real-time time tracking, attendance management, and comprehensive reporting dashboards. I built responsive React components, implemented secure authentication systems, and optimized database queries to ensure fast data retrieval.
+
+Project-One Application
+
+Project-One is a comprehensive project management and work item tracking system designed for agile development teams. I developed core features including work item management with hierarchical structures (Epic, Feature, User Story, Task), sprint planning and management, Kanban boards, backlog management, and comprehensive analytics dashboards. I built responsive React interfaces with TypeScript, implemented complex state management using Zustand and React Query, and developed RESTful APIs with .NET for work item operations.
+
+Ops-One Application
+
+Ops-One is a comprehensive operations management platform that streamlines asset tracking, expense management, and workflow automation for organizations. I was responsible for developing key features including complete asset lifecycle management with QR code tracking, automated expense processing with receipt scanning and approval workflows, reimbursement processing with digital receipt stamping, and comprehensive analytics dashboards. I built responsive React components with TypeScript, developed secure backend APIs with .NET, and implemented role-based access control for multiple user roles.
+
+HR-One Application
+
+HR-One is a comprehensive Human Resources Management System designed to streamline all HR operations for organizations. I developed core features including employee profile management with personal, job, financial, and document information, department and designation assignment with hierarchical structures, employment history tracking, attendance management for both admins and employees, and comprehensive HR dashboards with key metrics. I built responsive React interfaces with TypeScript, implemented secure authentication and authorization systems, and developed RESTful APIs with .NET for all HR operations.
+
+AI-Powered Sentiment Analysis System
+
+Developed a sentiment analysis system using Machine Learning and Deep Learning techniques for classification tasks. The project involved data preprocessing, feature engineering, model training with scikit-learn, and deployment of the model for real-time analysis. I implemented various algorithms and compared their performance to achieve optimal accuracy. The system was integrated into a web application using Python backend and React frontend, demonstrating end-to-end ML deployment capabilities.
+
+RAG-Based Information Retrieval System
+
+Explored and implemented a Retrieval-Augmented Generation (RAG) system to enhance information retrieval capabilities. The project involved working with transformer architectures, fine-tuning language models, and building a system that combines retrieval and generation for accurate and context-aware responses. This project demonstrated advanced understanding of modern NLP techniques and their practical applications in real-world scenarios.
+
