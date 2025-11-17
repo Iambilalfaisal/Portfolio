@@ -11,13 +11,6 @@ import {
   Cpu,
 } from 'lucide-react'
 
-interface Skill {
-  name: string
-  icon: React.ReactNode
-  level: 'expert' | 'advanced' | 'intermediate' | 'beginner'
-  category: string
-}
-
 interface AboutProps {
   darkMode: boolean
 }
@@ -72,17 +65,6 @@ const Skills = ({ darkMode }: AboutProps) => {
       { name: 'Feature Engineering', icon: <Cpu size={24} />, level: 'intermediate' as const },
       { name: 'Model Deployment', icon: <Cloud size={24} />, level: 'beginner' as const },
     ],
-  }
-
-  const getLevelColor = (level: string) => {
-    if (level === 'expert') {
-      return darkMode ? 'bg-accent-400' : 'bg-accent-400'
-    } else if (level === 'advanced') {
-      return darkMode ? 'bg-accent-500' : 'bg-accent-500'
-    } else if (level === 'intermediate') {
-      return darkMode ? 'bg-electric-500' : 'bg-electric-500'
-    }
-    return darkMode ? 'bg-vibrant-500' : 'bg-vibrant-500'
   }
 
   const getLevelWidth = (level: string) => {
