@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github } from 'lucide-react'
 
 interface Project {
   title: string

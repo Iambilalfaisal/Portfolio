@@ -213,7 +213,7 @@ const Hero = ({ darkMode }: HeroProps) => {
             <motion.button
               whileHover={{
                 scale: 1.08,
-                boxShadow: '0 10px 40px rgba(79, 156, 255, 0.4)',
+                boxShadow: '0 20px 60px rgba(6, 182, 212, 0.6)',
               }}
               whileTap={{ scale: 0.95 }}
               onClick={downloadCV}
@@ -222,10 +222,6 @@ const Hero = ({ darkMode }: HeroProps) => {
                   ? 'bg-gradient-to-r from-accent-500 via-electric-500 to-vibrant-500 text-white glow-cyan'
                   : 'bg-gradient-to-r from-accent-500 via-electric-500 to-vibrant-500 text-white'
               }`}
-              whileHover={{
-                scale: 1.08,
-                boxShadow: '0 20px 60px rgba(6, 182, 212, 0.6)',
-              }}
             >
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-electric-500 via-accent-500 to-vibrant-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -246,6 +242,7 @@ const Hero = ({ darkMode }: HeroProps) => {
               whileHover={{
                 scale: 1.08,
                 backgroundColor: darkMode ? 'rgba(79, 156, 255, 0.15)' : 'rgba(79, 156, 255, 0.1)',
+                borderColor: darkMode ? '#10b981' : '#10b981',
               }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
@@ -254,10 +251,6 @@ const Hero = ({ darkMode }: HeroProps) => {
                   ? 'border-accent-500 text-accent-400 hover:border-vibrant-500 hover:text-vibrant-400'
                   : 'border-accent-500 text-accent-500 hover:border-vibrant-500 hover:text-vibrant-500'
               }`}
-              whileHover={{
-                scale: 1.08,
-                borderColor: darkMode ? '#10b981' : '#10b981',
-              }}
             >
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-accent-400/10 to-vibrant-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
