@@ -17,7 +17,7 @@ design idea, not the individual colors.
 | `--ink` | `#12151C` | Primary text on `--paper`; becomes the base surface in dark mode. |
 | `--graphite` | `#5B6270` | Secondary text, muted labels, inactive state. |
 | `--hairline` | `#D9DCE2` | Borders, dividers, table rules, card edges. Structural, never decorative. |
-| `--grounded` | `#0E7C7B` | **Semantic: permitted / authorized / verified / shipped.** Retrieved-and-authorized nodes in the 3D scene, "Shipped to production" badges, verified-answer states in diagrams. |
+| `--grounded` | `#0B6C6B` | **Semantic: permitted / authorized / verified / shipped.** Retrieved-and-authorized nodes in the 3D scene, "Shipped to production" badges, verified-answer states in diagrams. (Darkened from an initial `#0E7C7B` — that shade measured 4.41:1 against its own subtle-background tint, just under the 4.5:1 AA floor for small text; caught in the Phase 4 Lighthouse pass.) |
 | `--gated` | `#9B3A44` | **Semantic: denied / boundary / omitted / in-development.** Refused nodes at the authorization membrane, the Reviewer agent's missing write tool, "In development" badges, filtered-out records. |
 
 Dark mode remaps rather than invents: `--ink` becomes the base surface, `--paper` becomes primary

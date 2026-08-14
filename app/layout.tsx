@@ -3,7 +3,7 @@ import { Space_Grotesk, IBM_Plex_Sans, JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import MotionProvider from '@/components/MotionProvider'
+import SmoothScroll from '@/components/SmoothScroll'
 import './globals.css'
 
 const display = Space_Grotesk({
@@ -102,14 +102,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <noscript>
-          <style>{'[style*="opacity:0"]{opacity:1 !important;transform:none !important}'}</style>
-        </noscript>
-        <MotionProvider>
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-        </MotionProvider>
+        <SmoothScroll />
+        <Nav />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )

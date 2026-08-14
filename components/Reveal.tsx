@@ -1,32 +1,19 @@
-'use client'
-
-import { motion, type Variants } from 'framer-motion'
 import type { ReactNode } from 'react'
 
-const variants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-}
-
+/**
+ * Content wrapper — intentionally NOT scroll-animated. An earlier version used Framer
+ * Motion's whileInView, but that SSRs an opacity:0 inline style that only resolves once
+ * client JS hydrates and an IntersectionObserver fires — on a slow connection that's a
+ * real window where page content is invisible. Scroll choreography belongs in Phase 6,
+ * built so it never gates content visibility on hydration timing.
+ */
 export default function Reveal({
   children,
-  delay = 0,
   className,
 }: {
   children: ReactNode
   delay?: number
   className?: string
 }) {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={variants}
-      transition={{ delay }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  )
+  return <div className={className}>{children}</div>
 }

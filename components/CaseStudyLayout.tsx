@@ -1,8 +1,12 @@
 import Link from 'next/link'
+import type { ComponentType } from 'react'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import type { CaseStudy } from '@/lib/content'
 import StatusBadge from './StatusBadge'
 import Reveal from './Reveal'
+import RepoWardenDiagram from './diagrams/RepoWardenDiagram'
+import ProjectEaseDiagram from './diagrams/ProjectEaseDiagram'
+import NucleusOneDiagram from './diagrams/NucleusOneDiagram'
 
 const sectionOrder: Array<{ key: keyof CaseStudy['sections']; label: string }> = [
   { key: 'problem', label: 'The problem' },
@@ -11,7 +15,15 @@ const sectionOrder: Array<{ key: keyof CaseStudy['sections']; label: string }> =
   { key: 'differently', label: 'What I’d do differently' },
 ]
 
+const diagrams: Record<string, ComponentType> = {
+  repowarden: RepoWardenDiagram,
+  'project-ease': ProjectEaseDiagram,
+  'nucleus-one': NucleusOneDiagram,
+}
+
 export default function CaseStudyLayout({ study }: { study: CaseStudy }) {
+  const Diagram = diagrams[study.slug]
+
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
       <Link
@@ -51,6 +63,11 @@ export default function CaseStudyLayout({ study }: { study: CaseStudy }) {
               {label}
             </h2>
             <p className="font-sans text-body text-ink dark:text-paper measure">{study.sections[key]}</p>
+            {key === 'approach' && Diagram && (
+              <div className="mt-8">
+                <Diagram />
+              </div>
+            )}
           </Reveal>
         ))}
       </div>

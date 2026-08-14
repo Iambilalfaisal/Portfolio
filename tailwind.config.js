@@ -16,7 +16,7 @@ module.exports = {
           dark: '#262A33',
         },
         grounded: {
-          DEFAULT: '#0E7C7B',
+          DEFAULT: '#0B6C6B',
           dark: '#4FC3C0',
           subtle: '#E6F3F2',
           'subtle-dark': '#15302F',
