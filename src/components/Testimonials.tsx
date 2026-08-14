@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Award, Code, Database, Brain, TrendingUp, Users } from 'lucide-react'
+import { Award, Code, Database, Brain, ShieldCheck, GitBranch } from 'lucide-react'
 
 interface Achievement {
   icon: React.ReactNode
@@ -21,39 +21,39 @@ const Testimonials = ({ darkMode }: TestimonialsProps) => {
 
   const achievements: Achievement[] = [
     {
-      icon: <Code size={32} />,
-      title: 'Full-Stack Development',
-      description: 'Built and deployed 5+ enterprise applications (NucleusOne, TimeSheet-One, Project-One, Ops-One, HR-One) using React, TypeScript, .NET, and MSSQL, serving real business needs.',
-      category: 'Development',
-    },
-    {
       icon: <Brain size={32} />,
-      title: 'AI Integration',
-      description: 'Successfully integrated ML models into web applications, deployed sentiment analysis systems, and implemented RAG architectures for enhanced user experiences.',
+      title: 'Production Agentic AI',
+      description: 'Ships LangChain and LangGraph pipelines — tool-calling agents, stateful graphs, human-in-the-loop approval — running live inside Nucleus One, plus a two-agent RepoWarden system built as two compiled StateGraphs.',
       category: 'AI/ML',
     },
     {
+      icon: <ShieldCheck size={32} />,
+      title: 'Permission-Aware RAG',
+      description: 'Built and shipped a Retrieval-Augmented Generation chatbot into production, resolving every retrieval against the asking user’s existing platform permissions so it can never surface data that user isn’t already entitled to see.',
+      category: 'AI/ML',
+    },
+    {
+      icon: <Code size={32} />,
+      title: 'Sole Engineer, Project-One',
+      description: 'Owns the Project-One work-item tracking module end to end — SQL Server schema through ASP.NET Core 8 services to the React/TypeScript interface — on a seven-person team, ranked second by commit volume across both platform repositories.',
+      category: 'Full-Stack',
+    },
+    {
+      icon: <GitBranch size={32} />,
+      title: 'Security-First Engineering',
+      description: 'Built the platform authentication controller (JWT, RBAC, secure sessions), and designed RepoWarden’s Reviewer agent so its toolset structurally omits the write tool — safety enforced through tool binding, not prompt instructions.',
+      category: 'Security',
+    },
+    {
       icon: <Database size={32} />,
-      title: 'Database Optimization',
-      description: 'Improved database efficiency by optimizing queries, implementing indexing strategies, and enhancing data retrieval performance across multiple applications.',
+      title: 'Full-Stack Delivery',
+      description: 'Authored the HR-One service layer and schema, and shipped TimeTrace to production with its backend reporting engine, across a unified SQL Server schema of roughly 100 tables shared across Nucleus One’s modules.',
       category: 'Backend',
-    },
-    {
-      icon: <Users size={32} />,
-      title: 'Team Collaboration',
-      description: 'Collaborated with cross-functional teams at Acme-One, participated in code reviews, sprint planning, and delivered measurable business value through technical solutions.',
-      category: 'Collaboration',
-    },
-    {
-      icon: <TrendingUp size={32} />,
-      title: 'Performance Enhancement',
-      description: 'Developed responsive React interfaces with complex state management, optimized API performance, and implemented secure authentication systems for enterprise applications.',
-      category: 'Performance',
     },
     {
       icon: <Award size={32} />,
       title: 'Continuous Learning',
-      description: 'Exploring Transformer architectures, LLMs, and RAG systems while maintaining production code quality and contributing to technical documentation.',
+      description: 'Final-year BS Data Science student at UMT researching transformer architectures and RAG, Anthropic-certified in Claude Code and AI fluency fundamentals (2026).',
       category: 'Growth',
     },
   ]
@@ -112,7 +112,7 @@ const Testimonials = ({ darkMode }: TestimonialsProps) => {
               darkMode ? 'text-primary-300' : 'text-primary-600'
             }`}
           >
-            Highlights from my work at Acme-One and personal projects
+            Highlights from production work at Acme One and independent engineering projects
           </p>
         </motion.div>
 

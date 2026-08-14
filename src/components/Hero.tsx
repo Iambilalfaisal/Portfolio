@@ -169,7 +169,7 @@ const Hero = ({ darkMode }: HeroProps) => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 whileHover={{ scale: 1.05 }}
               >
-                Muhammad Bilal Faisal
+                M Bilal Faisal
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, scale: 0 }}
@@ -191,7 +191,7 @@ const Hero = ({ darkMode }: HeroProps) => {
                 darkMode ? 'text-primary-100' : 'text-primary-600'
               }`}
             >
-              AI Engineer & Full-Stack Developer
+              AI/ML Engineer & Full-Stack Developer
             </p>
           </motion.div>
 
@@ -201,8 +201,9 @@ const Hero = ({ darkMode }: HeroProps) => {
                 darkMode ? 'text-primary-200' : 'text-primary-600'
               }`}
             >
-              Building intelligent web applications and integrating AI models with scalable backend solutions. 
-              Exploring Transformer architectures, LLMs, and RAG systems to deliver measurable business value.
+              I build retrieval-augmented and agentic AI systems — LangChain and LangGraph pipelines
+              running inside a live enterprise platform — and the ASP.NET Core, React and SQL Server
+              software those systems have to live inside.
             </p>
           </motion.div>
 

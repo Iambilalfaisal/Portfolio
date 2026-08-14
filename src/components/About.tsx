@@ -34,18 +34,14 @@ const About = ({ darkMode }: AboutProps) => {
   }
 
   const skills = [
-    'Python Programming',
-    'Machine Learning',
-    'Deep Learning',
-    'React.js',
-    'TypeScript',
-    '.NET Framework',
-    'C# Development',
-    'MSSQL Database',
-    'RESTful APIs',
-    'Transformers & LLMs',
-    'RAG Systems',
-    'Sentiment Analysis',
+    'LangChain & LangGraph',
+    'Retrieval-Augmented Generation',
+    'Agentic AI Systems',
+    'ASP.NET Core 8',
+    'React & TypeScript',
+    'SQL Server',
+    'Azure AI Foundry',
+    'Python (scikit-learn, pandas)',
   ]
 
   return (
@@ -118,7 +114,7 @@ const About = ({ darkMode }: AboutProps) => {
                 >
                   <motion.img
                     src="/1754093305476.jpg"
-                    alt="Muhammad Bilal Faisal"
+                    alt="M Bilal Faisal"
                     className="w-full h-full object-cover rounded-full"
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.5 }}
@@ -143,7 +139,7 @@ const About = ({ darkMode }: AboutProps) => {
                   transition={{ delay: 0.5, duration: 0.5 }}
                   whileHover={{ scale: 1.1, y: -5 }}
                 >
-                  AI Engineer
+                  AI/ML Engineer
                 </motion.div>
                 
                 {/* Animated background glow */}
@@ -173,19 +169,21 @@ const About = ({ darkMode }: AboutProps) => {
                   darkMode ? 'text-primary-200' : 'text-primary-600'
                 }`}
               >
-                Passionate AI Engineer and Full-Stack Developer with hands-on experience in building intelligent web applications 
-                and integrating AI models with scalable backend solutions. Skilled in React, .NET, MSSQL, and Python, with a strong 
-                foundation in Machine Learning, Deep Learning, and modern software engineering practices.
+                Associate Software Engineer at Acme One in Lahore, building LangChain and LangGraph agentic
+                pipelines and a permission-aware Retrieval-Augmented Generation chatbot inside Nucleus One, a
+                multi-module enterprise platform. Sole engineer on the Project-One module, delivered end to end
+                from SQL Server schema through ASP.NET Core 8 services to a React/TypeScript interface.
               </p>
               <p
                 className={`text-lg md:text-xl mb-8 leading-relaxed ${
                   darkMode ? 'text-primary-200' : 'text-primary-600'
                 }`}
               >
-                Currently exploring Transformer architectures, Large Language Models (LLMs), and Retrieval-Augmented Generation (RAG) 
-                systems. Experienced in developing responsive web applications, RESTful APIs, and ML models for real-world business 
-                applications. Recognized for a proactive approach, data-driven problem-solving, and the ability to collaborate 
-                effectively with cross-functional teams to deliver measurable results.
+                Final-year BS in Data Science student at the University of Management and Technology (UMT),
+                Lahore, researching transformer architectures, large language models and retrieval-augmented
+                generation alongside full-time engineering work. Certified by Anthropic in Claude Code and AI
+                fluency fundamentals (2026). Builds intelligent systems that actually reach production, and the
+                conventional software those features have to live inside.
               </p>
               <div className="mb-8">
                 <h3
@@ -212,7 +210,7 @@ const About = ({ darkMode }: AboutProps) => {
                       darkMode ? 'text-primary-300' : 'text-primary-500'
                     }`}
                   >
-                    University of Management and Technology (UMT), Lahore | 2023 – 2027
+                    University of Management and Technology (UMT), Lahore | 2023 – 2027 (Final Year)
                   </p>
                 </div>
               </div>

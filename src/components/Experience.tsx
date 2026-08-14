@@ -7,9 +7,16 @@ interface ExperienceItem {
   company: string
   location: string
   period: string
+  note?: string
   description: string[]
   tools?: string[]
   type: 'full-time' | 'internship' | 'contract'
+}
+
+interface ModuleItem {
+  name: string
+  role: string
+  description: string
 }
 
 interface ExperienceProps {
@@ -24,34 +31,81 @@ const Experience = ({ darkMode }: ExperienceProps) => {
 
   const experiences: ExperienceItem[] = [
     {
-      title: 'Full Stack Developer & ML/Data Science Intern',
-      company: 'Acme-One',
+      title: 'Associate Software Engineer',
+      company: 'Acme One',
       location: 'Lahore, Pakistan',
-      period: '2025 - Present',
+      period: 'March 2026 – Present',
       type: 'full-time',
       description: [
-        'Built and deployed responsive web applications using React, .NET, and MSSQL, ensuring optimal performance and user experience across multiple devices and platforms',
-        'Developed RESTful APIs with secure authentication and comprehensive user management systems, implementing best practices for security and scalability',
-        'Collaborated with the AI team to integrate Machine Learning models using Python and scikit-learn, enabling intelligent features within web applications',
-        'Improved database efficiency by optimizing queries, implementing proper indexing strategies, and enhancing data retrieval performance',
-        'Developed ML models with Python, pandas, and scikit-learn, focusing on improving model accuracy through iterative refinement and feature engineering',
-        'Performed comprehensive data cleaning, Exploratory Data Analysis (EDA), and feature engineering to enhance model performance and data quality',
-        'Explored and implemented transformer-based architectures and Retrieval-Augmented Generation (RAG) systems for advanced AI capabilities',
-        'Deployed Sentiment Analysis models and small-scale Machine Learning and Deep Learning models for classification tasks',
-        'Participated in code reviews, technical discussions, and sprint planning meetings to ensure code quality and alignment with project objectives',
-        'Maintained and updated technical documentation, ensuring knowledge transfer and team collaboration',
+        'Build LangChain and LangGraph agentic pipelines inside Nucleus One: multi-step chains, tool-calling agents with custom tool definitions, stateful graphs, and human-in-the-loop approval steps, integrated with the platform’s ASP.NET Core 8 APIs and SQL Server data layer.',
+        'Implemented LiveKit voice agents for a real-time AI assistant on a construction-site management platform, building the agent-worker architecture that handles live audio streams and LLM-driven responses over WebRTC.',
+        'Sole engineer on the Project-One module, delivered end to end from SQL Server schema through ASP.NET Core 8 services to the React/TypeScript interface: Epic → Feature → Story → Task hierarchies, sprint planning, Kanban boards, backlog management, analytics dashboards.',
+        'Authored the HR-One service layer covering onboarding, offboarding and evaluation workflows, and deployed its SQL Server schema.',
+        'Built the platform authentication controller with JWT, RBAC and secure session handling.',
+        'Shipped TimeTrace to production with its backend reporting engine, and tuned queries and indexes for reporting workloads.',
+        'Uses Azure AI Foundry for model management and evaluation, and runs Llama 3.1 locally through Ollama for offline inference and pipeline testing.',
+        'Client-side state management with Zustand and React Query; responsive interfaces with Tailwind CSS; frontend breadth extends across Next.js, Vue.js and Laravel through additional client-facing project work.',
+        'Participates in code review, sprint planning and technical design discussions; maintains technical documentation across owned modules.',
       ],
       tools: [
-        'React.js with TypeScript',
-        '.NET Framework (C#)',
-        'MSSQL Server',
-        'Python (scikit-learn, pandas, NumPy)',
-        'Git',
-        'Postman',
-        'Cursor IDE',
-        'React Query',
+        'LangChain / LangGraph',
+        'ASP.NET Core 8',
+        'SQL Server',
+        'LiveKit / WebRTC',
+        'Azure AI Foundry',
+        'Ollama / Llama 3.1',
+        'React / TypeScript',
         'Zustand',
+        'React Query',
+        'Tailwind CSS',
       ],
+    },
+    {
+      title: 'Artificial Intelligence Intern',
+      company: 'Acme One',
+      location: 'Lahore, Pakistan',
+      period: 'July 2025 – March 2026',
+      note: 'Converted early into the full-time engineering role above.',
+      type: 'internship',
+      description: [
+        'Engineered and deployed a Retrieval-Augmented Generation chatbot into Nucleus One’s production environment, letting employees ask open-ended questions in natural language and get answers drawn from live platform data across the roughly 100-table SQL Server schema. Owned the feature from prototype through go-live.',
+        'Made retrieval permission-aware: every request is resolved against the asking user’s existing authorisation in the application, so the chatbot can only surface records that user is already entitled to see.',
+        'Improved retrieval grounding through prompt engineering and iteration on chunking strategy and embedding configuration, measured against answer accuracy on internal documents.',
+        'Built and evaluated NLP and text-classification models in Python with pandas, NumPy and scikit-learn — data cleaning, exploratory analysis, feature engineering, model comparison — then deployed the selected sentiment model behind REST endpoints in a production web application.',
+        'Performed end-to-end data preparation on internal company datasets and iterated on feature selection and model choice to improve classification accuracy.',
+      ],
+      tools: [
+        'Python',
+        'RAG',
+        'LangChain',
+        'scikit-learn',
+        'pandas',
+        'NumPy',
+        'SQL Server',
+      ],
+    },
+  ]
+
+  const modules: ModuleItem[] = [
+    {
+      name: 'Project-One',
+      role: 'Sole engineer',
+      description: 'Work-item tracking with hierarchical Epic, Feature, Story and Task structures, sprint planning, Kanban boards, backlog management, analytics dashboards.',
+    },
+    {
+      name: 'HR-One',
+      role: 'Service layer + schema',
+      description: 'Employee profile management, department and designation hierarchies, employment history, attendance tracking, HR metrics dashboards.',
+    },
+    {
+      name: 'Ops-One',
+      role: 'Contributor',
+      description: 'Asset lifecycle management with QR code tracking, automated expense processing with receipt scanning, approval workflows, reimbursement processing.',
+    },
+    {
+      name: 'TimeTrace',
+      role: 'Shipped to production',
+      description: 'Time-tracking module with a backend reporting engine, including query and index tuning for reporting workloads.',
     },
   ]
 
@@ -72,7 +126,7 @@ const Experience = ({ darkMode }: ExperienceProps) => {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     },
   }
@@ -104,6 +158,14 @@ const Experience = ({ darkMode }: ExperienceProps) => {
               darkMode ? 'bg-accent-400' : 'bg-accent-400'
             }`}
           />
+          <p
+            className={`mt-6 text-lg md:text-xl max-w-2xl mx-auto ${
+              darkMode ? 'text-primary-200' : 'text-primary-600'
+            }`}
+          >
+            Over a year, continuous, at Acme One — a technology consulting and solutions provider
+            building Nucleus One, a multi-module enterprise platform.
+          </p>
         </motion.div>
 
         <div className="relative">
@@ -205,6 +267,16 @@ const Experience = ({ darkMode }: ExperienceProps) => {
                     {exp.type.replace('-', ' ').toUpperCase()}
                   </span>
 
+                  {exp.note && (
+                    <p
+                      className={`text-sm italic mb-4 ${
+                        darkMode ? 'text-primary-300' : 'text-primary-500'
+                      }`}
+                    >
+                      {exp.note}
+                    </p>
+                  )}
+
                   <ul className="space-y-2 mt-4">
                     {exp.description.map((item, idx) => (
                       <li
@@ -256,6 +328,52 @@ const Experience = ({ darkMode }: ExperienceProps) => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Nucleus One modules touched */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 md:pl-20"
+          >
+            <h3
+              className={`text-lg font-display font-bold mb-6 ${
+                darkMode ? 'text-white' : 'text-primary-500'
+              }`}
+            >
+              Nucleus One Modules Touched
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {modules.map((mod) => (
+                <div
+                  key={mod.name}
+                  className={`rounded-xl p-5 ${
+                    darkMode
+                      ? 'bg-primary-400/10 border border-primary-400/20'
+                      : 'bg-white border border-primary-100 shadow'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <h4
+                      className={`font-bold ${darkMode ? 'text-white' : 'text-primary-600'}`}
+                    >
+                      {mod.name}
+                    </h4>
+                    <span
+                      className={`text-xs font-semibold px-2 py-1 rounded ${
+                        darkMode ? 'bg-accent-400/20 text-accent-400' : 'bg-accent-50 text-accent-600'
+                      }`}
+                    >
+                      {mod.role}
+                    </span>
+                  </div>
+                  <p className={`text-sm ${darkMode ? 'text-primary-300' : 'text-primary-500'}`}>
+                    {mod.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -263,4 +381,3 @@ const Experience = ({ darkMode }: ExperienceProps) => {
 }
 
 export default Experience
-

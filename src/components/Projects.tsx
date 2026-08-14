@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github } from 'lucide-react'
+import { Github, GitBranch, Scale, ShieldCheck, FileWarning } from 'lucide-react'
 
 interface Project {
   title: string
+  tagline: string
   description: string
-  image: string
+  icon: React.ReactNode
   technologies: string[]
-  demoUrl?: string
   codeUrl?: string
+  badge: string
   featured?: boolean
 }
 
@@ -24,68 +25,43 @@ const Projects = ({ darkMode }: ProjectsProps) => {
 
   const projects: Project[] = [
     {
-      title: 'NucleusOne Platform',
+      title: 'RepoWarden',
+      tagline: 'Autonomous Code Review and Refactoring Agents',
       description:
-        'A comprehensive business management platform that centralizes multiple integrated applications for organizations. Contributed to developing core features across various modules including TimeSheet-One, Project-One, Binary-One, and Ops-One. Built responsive user interfaces with React, developed secure backend APIs with .NET, and optimized database queries in MSSQL.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-      technologies: ['React', 'TypeScript', '.NET', 'C#', 'MSSQL', 'RESTful APIs'],
-      demoUrl: '#',
-      codeUrl: '#',
+        'A two-agent LangGraph system, built as two compiled StateGraphs behind a FastAPI backend, that reviews, evaluates and safely refactors a codebase. The Reviewer agent’s toolset structurally omits the write tool, so it cannot modify the workspace regardless of how it is prompted — safety enforced through tool binding, not instructions. Nothing is written to disk until the user approves, at which point a separate, write-capable Editor agent is constructed. Roughly ten custom tools span directory listing, file reads, code search, dedicated security/performance/quality analysers and structured edit proposals, streamed token-by-token over Server-Sent Events, with MongoDB-backed checkpointing for thread-scoped conversation state and cross-session project memory.',
+      icon: <GitBranch size={28} />,
+      technologies: ['Python', 'LangGraph', 'LangChain', 'FastAPI', 'MongoDB', 'React 19', 'Vite', 'Monaco'],
+      codeUrl: 'https://github.com/Iambilalfaisal/RepoWarden',
+      badge: 'Flagship',
       featured: true,
     },
     {
-      title: 'Project-One Application',
+      title: 'Project-Ease',
+      tagline: 'Multi-Tenant AI Platform for Law Firms',
       description:
-        'A comprehensive project management and work item tracking system designed for agile development teams. Developed core features including work item management with hierarchical structures (Epic, Feature, User Story, Task), sprint planning and management, Kanban boards, backlog management, and comprehensive analytics dashboards.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      technologies: ['React', 'TypeScript', '.NET', 'Zustand', 'React Query', 'MSSQL'],
-      demoUrl: '#',
-      codeUrl: '#',
+        'In development — an extension of Microsoft’s azure-search-openai-demo reference architecture into a legal-practice platform for Pakistani law firms. Organisation-scoped retrieval sits alongside a shared case-law corpus in a single hybrid BM25 + vector + semantic query, with tenancy enforced server-side from the JWT organisation claim rather than any client-supplied value. A second, temperature-zero model call verifies every answer against its retrieved sources before the user sees it, and a RAGAS evaluation harness is wired into the response path to score faithfulness, answer relevancy and context precision. Also includes matter lifecycle tracking, OCR-assisted document extraction, statutory fee calculation, WhatsApp/Twilio reminders with Whisper transcription, and an Urdu/RTL interface.',
+      icon: <Scale size={28} />,
+      technologies: ['Python', 'Quart', 'Azure OpenAI', 'Azure AI Search', 'Azure AI Document Intelligence', 'RAGAS', 'React 19'],
+      codeUrl: 'https://github.com/Iambilalfaisal/Project-Ease',
+      badge: 'In Development',
     },
     {
-      title: 'TimeSheet-One Application',
+      title: 'Multi-Factor Authentication Server',
+      tagline: 'Information Security Capstone',
       description:
-        'A professional time tracking and project management platform designed to streamline team productivity. Developed key features including real-time time tracking, attendance management, and comprehensive reporting dashboards. Built responsive React components, implemented secure authentication systems, and optimized database queries.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-      technologies: ['React', 'TypeScript', '.NET', 'MSSQL', 'Authentication'],
-      demoUrl: '#',
-      codeUrl: '#',
+        'HOTP (RFC 4226) and TOTP (RFC 6238) implemented directly from the specifications and validated against pyotp as an independent oracle, with an AES-256-GCM encrypted vault, Argon2id password hashing, WebAuthn/FIDO2 attestation and assertion verification, and an Isolation Forest layer scoring login risk over geographic distance, impossible travel, new-device and unusual-hour features with LLM-generated alerts.',
+      icon: <ShieldCheck size={28} />,
+      technologies: ['Python', 'scikit-learn', 'Streamlit', 'WebAuthn / FIDO2'],
+      badge: 'Capstone',
     },
     {
-      title: 'Ops-One Application',
+      title: 'Automated Information Security Risk Assessment Platform',
+      tagline: 'NIST SP 800-30 Risk Assessment Application',
       description:
-        'A comprehensive operations management platform that streamlines asset tracking, expense management, and workflow automation for organizations. Developed key features including complete asset lifecycle management with QR code tracking, automated expense processing with receipt scanning and approval workflows, and comprehensive analytics dashboards.',
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop',
-      technologies: ['React', 'TypeScript', '.NET', 'MSSQL', 'Role-Based Access'],
-      demoUrl: '#',
-      codeUrl: '#',
-    },
-    {
-      title: 'HR-One Application',
-      description:
-        'A comprehensive Human Resources Management System designed to streamline all HR operations for organizations. Developed core features including employee profile management, department and designation assignment with hierarchical structures, employment history tracking, attendance management, and comprehensive HR dashboards with key metrics.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-      technologies: ['React', 'TypeScript', '.NET', 'MSSQL', 'Authentication'],
-      demoUrl: '#',
-      codeUrl: '#',
-    },
-    {
-      title: 'AI-Powered Sentiment Analysis System',
-      description:
-        'Developed a sentiment analysis system using Machine Learning and Deep Learning techniques for classification tasks. The project involved data preprocessing, feature engineering, model training with scikit-learn, and deployment of the model for real-time analysis. Integrated into a web application using Python backend and React frontend.',
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
-      technologies: ['Python', 'scikit-learn', 'pandas', 'React', 'ML', 'Deep Learning'],
-      demoUrl: '#',
-      codeUrl: '#',
-    },
-    {
-      title: 'RAG-Based Information Retrieval System',
-      description:
-        'Explored and implemented a Retrieval-Augmented Generation (RAG) system to enhance information retrieval capabilities. The project involved working with transformer architectures, fine-tuning language models, and building a system that combines retrieval and generation for accurate and context-aware responses.',
-      image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=600&fit=crop',
-      technologies: ['Python', 'Transformers', 'LLMs', 'RAG', 'NLP', 'Vector Databases'],
-      demoUrl: '#',
-      codeUrl: '#',
+        'Asset, threat and vulnerability registers with live CVE lookups through the NVD API, LLM-generated control recommendations with a rule-based offline fallback, and automated PDF reporting for risk registers, cost-benefit analysis and compliance checklists — served from a Flask REST API backing both Streamlit and React frontends.',
+      icon: <FileWarning size={28} />,
+      technologies: ['Flask', 'React', 'Streamlit', 'Claude API', 'NVD API'],
+      badge: 'Capstone',
     },
   ]
 
@@ -107,7 +83,7 @@ const Projects = ({ darkMode }: ProjectsProps) => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as const,
       },
     },
   }
@@ -144,8 +120,8 @@ const Projects = ({ darkMode }: ProjectsProps) => {
               darkMode ? 'text-primary-200' : 'text-primary-600'
             }`}
           >
-            A collection of projects showcasing my expertise in AI, machine
-            learning, and modern web development.
+            Independent engineering work — agentic AI systems, retrieval-augmented platforms, and
+            security engineering built from first principles.
           </p>
         </motion.div>
 
@@ -153,63 +129,71 @@ const Projects = ({ darkMode }: ProjectsProps) => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 gap-8"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
               whileHover={{
-                y: -15,
-                scale: 1.02,
+                y: -10,
+                scale: 1.01,
                 transition: { duration: 0.3 },
               }}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-300 ${
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${
                 darkMode
                   ? 'bg-primary-800/50 border border-primary-700/50 hover:border-accent-500/80 hover:shadow-2xl hover:shadow-accent-500/30 backdrop-blur-sm'
                   : 'bg-white border border-primary-200 shadow-lg hover:border-accent-500/80 hover:shadow-2xl hover:shadow-accent-500/30'
-              } ${project.featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              }`}
             >
-              <div className="relative h-48 overflow-hidden">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.15 }}
+              <div
+                className={`relative px-6 pt-6 pb-4 flex items-start justify-between ${
+                  darkMode ? 'bg-primary-900/40' : 'bg-primary-50/60'
+                }`}
+              >
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.5 }}
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-primary-500/90 via-primary-500/50 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
+                  className={`inline-flex p-3 rounded-xl ${
+                    darkMode
+                      ? 'bg-gradient-to-br from-accent-500/20 to-vibrant-500/20 text-accent-400'
+                      : 'bg-gradient-to-br from-accent-500/10 to-vibrant-500/10 text-accent-600'
+                  }`}
                 >
-                  <motion.div
-                    className={`px-6 py-3 rounded-lg bg-gradient-to-r from-accent-500 via-electric-500 to-vibrant-500 text-white font-semibold shadow-lg`}
-                    whileHover={{ scale: 1.15, rotate: 2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Project
-                  </motion.div>
+                  {project.icon}
                 </motion.div>
+                <span
+                  className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                    project.badge === 'In Development'
+                      ? darkMode
+                        ? 'bg-vibrant-500/20 text-vibrant-400'
+                        : 'bg-vibrant-50 text-vibrant-600'
+                      : darkMode
+                      ? 'bg-accent-400/20 text-accent-400'
+                      : 'bg-accent-50 text-accent-600'
+                  }`}
+                >
+                  {project.badge}
+                </span>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3
-                  className={`text-xl font-display font-bold mb-3 ${
+                  className={`text-xl font-display font-bold mb-1 ${
                     darkMode ? 'text-white' : 'text-primary-500'
                   }`}
                 >
                   {project.title}
                 </h3>
                 <p
-                  className={`text-sm mb-4 leading-relaxed ${
+                  className={`text-sm font-medium mb-4 ${
+                    darkMode ? 'text-accent-400' : 'text-accent-600'
+                  }`}
+                >
+                  {project.tagline}
+                </p>
+                <p
+                  className={`text-sm mb-6 leading-relaxed flex-1 ${
                     darkMode ? 'text-primary-200' : 'text-primary-600'
                   }`}
                 >
@@ -217,13 +201,9 @@ const Projects = ({ darkMode }: ProjectsProps) => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
-                    <motion.span
+                  {project.technologies.map((tech) => (
+                    <span
                       key={tech}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                      transition={{ delay: (index * 0.1) + (techIndex * 0.05) + 0.3 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
                       className={`px-3 py-1 rounded-full text-xs font-medium cursor-default ${
                         darkMode
                           ? 'bg-primary-400/20 text-accent-400 border border-primary-400/30'
@@ -231,14 +211,14 @@ const Projects = ({ darkMode }: ProjectsProps) => {
                       }`}
                     >
                       {tech}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4">
-                  {project.demoUrl && (
+                {project.codeUrl && (
+                  <div className="flex gap-4">
                     <motion.a
-                      href={project.demoUrl}
+                      href={project.codeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{
@@ -252,35 +232,11 @@ const Projects = ({ darkMode }: ProjectsProps) => {
                           : 'bg-gradient-to-r from-accent-500 via-electric-500 to-vibrant-500 text-white shadow-lg'
                       }`}
                     >
-                      <motion.span
-                        className="absolute inset-0 bg-gradient-to-r from-electric-600 via-accent-600 to-vibrant-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={false}
-                      />
-                      <ExternalLink size={16} className="relative z-10" />
-                      <span className="relative z-10">Demo</span>
-                    </motion.a>
-                  )}
-                  {project.codeUrl && (
-                    <motion.a
-                      href={project.codeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{
-                        scale: 1.08,
-                        backgroundColor: darkMode ? 'rgba(79, 156, 255, 0.15)' : 'rgba(79, 156, 255, 0.1)',
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border-2 transition-all ${
-                        darkMode
-                          ? 'border-accent-400 text-accent-400'
-                          : 'border-accent-400 text-accent-400'
-                      }`}
-                    >
                       <Github size={16} />
-                      Code
+                      View Code
                     </motion.a>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
@@ -291,4 +247,3 @@ const Projects = ({ darkMode }: ProjectsProps) => {
 }
 
 export default Projects
-

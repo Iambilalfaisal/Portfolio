@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle, AlertCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle, AlertCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 interface ContactProps {
@@ -50,7 +50,7 @@ const Contact = ({ darkMode }: ContactProps) => {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'bilalfaisal400@gmail.com',
+          to_email: 'Bilalfaisal100@gmail.com',
         },
         publicKey
       )
@@ -68,7 +68,7 @@ const Contact = ({ darkMode }: ContactProps) => {
     } catch (error) {
       console.error('EmailJS Error:', error)
       setSubmitStatus('error')
-      setStatusMessage('Failed to send message. Please try again or contact me directly at bilalfaisal400@gmail.com')
+      setStatusMessage('Failed to send message. Please try again or contact me directly at Bilalfaisal100@gmail.com')
       
       // Reset status after 5 seconds
       setTimeout(() => {
@@ -90,9 +90,8 @@ const Contact = ({ darkMode }: ContactProps) => {
   }
 
   const socialLinks = [
-    { icon: <Github size={24} />, url: 'https://github.com', label: 'GitHub' },
-    { icon: <Linkedin size={24} />, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <Twitter size={24} />, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: <Github size={24} />, url: 'https://github.com/Iambilalfaisal', label: 'GitHub' },
+    { icon: <Linkedin size={24} />, url: 'https://linkedin.com/in/ibilalfaisal', label: 'LinkedIn' },
   ]
 
   return (
@@ -178,12 +177,12 @@ const Contact = ({ darkMode }: ContactProps) => {
                     Email
                   </h4>
                   <a
-                    href="mailto:Bilalfaisal400@gmail.com"
+                    href="mailto:Bilalfaisal100@gmail.com"
                     className={`text-sm ${
                       darkMode ? 'text-primary-200 hover:text-accent-400' : 'text-primary-600 hover:text-accent-600'
                     } transition-colors`}
                   >
-                    Bilalfaisal400@gmail.com
+                    Bilalfaisal100@gmail.com
                   </a>
                 </div>
               </div>

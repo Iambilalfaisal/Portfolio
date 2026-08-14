@@ -20,14 +20,14 @@ const Footer = ({ darkMode }: FooterProps) => {
               darkMode ? 'text-primary-200' : 'text-primary-600'
             }`}
           >
-            © {currentYear} Muhammad Bilal Faisal. All rights reserved.
+            © {currentYear} M Bilal Faisal. All rights reserved.
           </p>
           <p
             className={`text-sm ${
               darkMode ? 'text-primary-300' : 'text-primary-500'
             }`}
           >
-            AI Engineer & Full-Stack Developer
+            AI/ML Engineer & Full-Stack Developer
           </p>
         </div>
       </div>

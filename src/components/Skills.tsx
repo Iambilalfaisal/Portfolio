@@ -5,73 +5,172 @@ import {
   Code,
   Database,
   Cloud,
-  GitBranch,
-  Zap,
+  ShieldCheck,
+  Wrench,
   Layers,
-  Cpu,
 } from 'lucide-react'
 
-interface AboutProps {
+interface SkillsProps {
   darkMode: boolean
 }
 
-const Skills = ({ darkMode }: AboutProps) => {
+const Skills = ({ darkMode }: SkillsProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
-  const skillCategories = {
-    'AI/ML': [
-      { name: 'Python Programming', icon: <Brain size={24} />, level: 'advanced' as const },
-      { name: 'Machine Learning', icon: <Brain size={24} />, level: 'intermediate' as const },
-      { name: 'Deep Learning', icon: <Brain size={24} />, level: 'intermediate' as const },
-      { name: 'Neural Networks', icon: <Brain size={24} />, level: 'intermediate' as const },
-      { name: 'NLP', icon: <Brain size={24} />, level: 'intermediate' as const },
-      { name: 'Transformers & LLMs', icon: <Brain size={24} />, level: 'beginner' as const },
-      { name: 'RAG Systems', icon: <Layers size={24} />, level: 'beginner' as const },
-      { name: 'Sentiment Analysis', icon: <Brain size={24} />, level: 'intermediate' as const },
-      { name: 'scikit-learn', icon: <Layers size={24} />, level: 'intermediate' as const },
-      { name: 'pandas', icon: <Cpu size={24} />, level: 'advanced' as const },
-      { name: 'NumPy', icon: <Cpu size={24} />, level: 'advanced' as const },
-    ],
-    'Frontend': [
-      { name: 'React.js', icon: <Code size={24} />, level: 'advanced' as const },
-      { name: 'TypeScript', icon: <Code size={24} />, level: 'advanced' as const },
-      { name: 'JavaScript', icon: <Code size={24} />, level: 'advanced' as const },
-      { name: 'Tailwind CSS', icon: <Zap size={24} />, level: 'advanced' as const },
-      { name: 'State Management', icon: <Zap size={24} />, level: 'intermediate' as const },
-      { name: 'Zustand', icon: <Zap size={24} />, level: 'intermediate' as const },
-      { name: 'React Query', icon: <Zap size={24} />, level: 'intermediate' as const },
-    ],
-    'Backend': [
-      { name: 'Python', icon: <Code size={24} />, level: 'advanced' as const },
-      { name: '.NET Framework', icon: <Database size={24} />, level: 'advanced' as const },
-      { name: 'C# Development', icon: <Database size={24} />, level: 'advanced' as const },
-      { name: 'RESTful APIs', icon: <Database size={24} />, level: 'advanced' as const },
-      { name: 'Authentication Systems', icon: <Database size={24} />, level: 'intermediate' as const },
-      { name: 'User Management', icon: <Database size={24} />, level: 'intermediate' as const },
-    ],
-    'Database & Tools': [
-      { name: 'MSSQL Database', icon: <Database size={24} />, level: 'advanced' as const },
-      { name: 'MySQL Database', icon: <Database size={24} />, level: 'intermediate' as const },
-      { name: 'Database Optimization', icon: <Database size={24} />, level: 'intermediate' as const },
-      { name: 'Query Optimization', icon: <Database size={24} />, level: 'intermediate' as const },
-      { name: 'Git Version Control', icon: <GitBranch size={24} />, level: 'expert' as const },
-      { name: 'Postman API Testing', icon: <Cloud size={24} />, level: 'advanced' as const },
-      { name: 'Cursor IDE', icon: <Cloud size={24} />, level: 'expert' as const },
-      { name: 'Data Cleaning', icon: <Cpu size={24} />, level: 'intermediate' as const },
-      { name: 'EDA', icon: <Cpu size={24} />, level: 'intermediate' as const },
-      { name: 'Feature Engineering', icon: <Cpu size={24} />, level: 'intermediate' as const },
-      { name: 'Model Deployment', icon: <Cloud size={24} />, level: 'beginner' as const },
-    ],
+  const skillCategories = [
+    {
+      category: 'AI & LLM Engineering',
+      icon: <Brain size={22} />,
+      skills: [
+        'Retrieval-Augmented Generation (RAG)',
+        'LangChain',
+        'LangGraph',
+        'Agentic AI & Tool-Calling Agents',
+        'Multi-Agent Orchestration',
+        'Prompt Engineering',
+        'Chunking & Retrieval Tuning',
+        'Embeddings',
+        'Hybrid Search (BM25 + Vector + Semantic)',
+        'RAG Evaluation (RAGAS)',
+        'Permission-Aware & Tenant-Scoped Retrieval',
+        'Hallucination Mitigation',
+        'LangGraph StateGraph Design',
+        'Checkpointing & Agent Persistence',
+        'Human-in-the-Loop Gating',
+        'Capability-Based Tool Isolation',
+        'Token Streaming (Server-Sent Events)',
+        'Large Language Models',
+        'Transformers',
+      ],
+    },
+    {
+      category: 'Machine Learning',
+      icon: <Layers size={22} />,
+      skills: [
+        'Natural Language Processing',
+        'Text Classification',
+        'Sentiment Analysis',
+        'Neural Networks',
+        'Deep Learning',
+        'Anomaly Detection (Isolation Forest)',
+        'Feature Engineering',
+        'Model Evaluation & Deployment',
+        'Supervised & Unsupervised Learning',
+        'Statistical Analysis',
+        'Data Visualization',
+      ],
+    },
+    {
+      category: 'AI Platforms & Libraries',
+      icon: <Cloud size={22} />,
+      skills: [
+        'Azure OpenAI Service',
+        'Azure AI Search',
+        'Azure AI Document Intelligence',
+        'Azure AI Foundry',
+        'Microsoft Entra ID',
+        'Claude API',
+        'Ollama / Llama 3.1',
+        'scikit-learn',
+        'pandas',
+        'NumPy',
+      ],
+    },
+    {
+      category: 'Backend & Databases',
+      icon: <Database size={22} />,
+      skills: [
+        'ASP.NET Core 8',
+        '.NET Framework',
+        'C#',
+        'Entity Framework',
+        'FastAPI',
+        'Quart',
+        'Flask',
+        'Node.js',
+        'Laravel',
+        'REST API Design',
+        'JWT & RBAC',
+        'Multi-Tenant Access Control',
+        'LiveKit & WebRTC',
+        'Microsoft SQL Server',
+        'MySQL',
+        'MongoDB',
+        'SQLite',
+        'Schema Design & Query Optimization',
+      ],
+    },
+    {
+      category: 'Frontend',
+      icon: <Code size={22} />,
+      skills: [
+        'React 18/19',
+        'TypeScript',
+        'Next.js',
+        'Vue.js',
+        'Zustand',
+        'React Query',
+        'Tailwind CSS',
+        'Vite',
+        'Streamlit',
+        'Responsive Design',
+      ],
+    },
+    {
+      category: 'Security Engineering',
+      icon: <ShieldCheck size={22} />,
+      skills: [
+        'OAuth / JWT',
+        'WebAuthn / FIDO2',
+        'TOTP (RFC 6238)',
+        'HOTP (RFC 4226)',
+        'AES-256-GCM',
+        'Argon2id',
+        'NIST SP 800-30',
+        'CVE / NVD Vulnerability Analysis',
+      ],
+    },
+    {
+      category: 'Cloud, Practices & Tools',
+      icon: <Wrench size={22} />,
+      skills: [
+        'Microsoft Azure',
+        'Azure Blob Storage',
+        'Git & GitHub',
+        'GitHub Actions / CI-CD',
+        'Agile / Scrum',
+        'Code Review',
+        'pytest',
+        'Postman',
+        'Jupyter',
+        'Cursor & VS Code',
+      ],
+    },
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
   }
 
-  const getLevelWidth = (level: string) => {
-    if (level === 'expert') return '90%'
-    if (level === 'advanced') return '75%'
-    if (level === 'intermediate') return '60%'
-    return '40%'
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut' as const,
+      },
+    },
   }
 
   return (
@@ -101,120 +200,70 @@ const Skills = ({ darkMode }: AboutProps) => {
               darkMode ? 'bg-accent-400' : 'bg-accent-400'
             }`}
           />
+          <p
+            className={`mt-6 text-lg md:text-xl max-w-2xl mx-auto ${
+              darkMode ? 'text-primary-200' : 'text-primary-600'
+            }`}
+          >
+            The full toolkit — from production agentic AI to the full-stack platforms it runs inside.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {Object.entries(skillCategories).map(([category, skills], categoryIndex) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="grid md:grid-cols-2 gap-8"
+        >
+          {skillCategories.map((cat) => (
             <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              key={cat.category}
+              variants={itemVariants}
               className={`rounded-2xl p-6 ${
                 darkMode
                   ? 'bg-primary-400/10 border border-primary-400/20'
                   : 'bg-white border border-primary-100 shadow-lg'
               }`}
             >
-              <h3
-                className={`text-2xl font-display font-bold mb-6 ${
-                  darkMode ? 'text-white' : 'text-primary-500'
-                }`}
-              >
-                {category}
-              </h3>
-              <div className="space-y-6">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -30, scale: 0.9 }}
-                    animate={inView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: -30, scale: 0.9 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: (categoryIndex * 0.1) + (index * 0.05),
-                      ease: [0.6, -0.05, 0.01, 0.99],
-                    }}
-                    whileHover={{ x: 5, transition: { duration: 0.2 } }}
-                    className="group"
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className={`p-2 rounded-lg ${
+                    darkMode
+                      ? 'bg-primary-400/20 text-accent-400'
+                      : 'bg-accent-50 text-accent-600'
+                  }`}
+                >
+                  {cat.icon}
+                </div>
+                <h3
+                  className={`text-xl font-display font-bold ${
+                    darkMode ? 'text-white' : 'text-primary-500'
+                  }`}
+                >
+                  {cat.category}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill) => (
+                  <motion.span
+                    key={skill}
+                    whileHover={{ scale: 1.06, y: -2 }}
+                    className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium cursor-default transition-colors ${
+                      darkMode
+                        ? 'bg-primary-400/20 text-accent-400 border border-primary-400/30 hover:border-accent-400/60'
+                        : 'bg-accent-50 text-accent-600 border border-accent-200 hover:border-accent-400'
+                    }`}
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-3">
-                        <motion.div
-                          className={`p-2 rounded-lg transition-all ${
-                            darkMode
-                              ? 'bg-primary-400/20 text-accent-400 group-hover:bg-accent-400/30'
-                              : 'bg-accent-50 text-accent-600 group-hover:bg-accent-100'
-                          }`}
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          {skill.icon}
-                        </motion.div>
-                        <span
-                          className={`font-medium transition-colors ${
-                            darkMode ? 'text-white group-hover:text-accent-400' : 'text-primary-600 group-hover:text-accent-600'
-                          }`}
-                        >
-                          {skill.name}
-                        </span>
-                      </div>
-                      <motion.span
-                        className={`text-xs font-semibold px-2 py-1 rounded ${
-                          darkMode
-                            ? 'bg-primary-400/20 text-accent-400'
-                            : 'bg-accent-50 text-accent-600'
-                        }`}
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        {skill.level}
-                      </motion.span>
-                    </div>
-                    <div
-                      className={`h-2.5 rounded-full overflow-hidden ${
-                        darkMode ? 'bg-primary-400/10' : 'bg-primary-100'
-                      }`}
-                    >
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: getLevelWidth(skill.level) } : { width: 0 }}
-                        transition={{
-                          duration: 1.2,
-                          delay: (categoryIndex * 0.1) + (index * 0.05) + 0.3,
-                          ease: [0.6, -0.05, 0.01, 0.99],
-                        }}
-                        className={`h-full rounded-full relative overflow-hidden ${
-                          skill.level === 'expert'
-                            ? 'bg-gradient-to-r from-accent-500 via-electric-500 to-vibrant-500'
-                            : skill.level === 'advanced'
-                            ? 'bg-gradient-to-r from-accent-600 to-electric-600'
-                            : skill.level === 'intermediate'
-                            ? 'bg-gradient-to-r from-electric-500 to-vibrant-500'
-                            : 'bg-gradient-to-r from-vibrant-500 to-accent-500'
-                        }`}
-                      >
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-                          animate={{
-                            x: ['-100%', '100%'],
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 2,
-                            ease: 'linear',
-                          }}
-                        />
-                      </motion.div>
-                    </div>
-                  </motion.div>
+                    {skill}
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
 
 export default Skills
-
