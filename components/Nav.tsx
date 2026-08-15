@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { Menu } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 const navItems = [
@@ -9,8 +12,44 @@ const navItems = [
 ]
 
 export default function Nav() {
+  const [hidden, setHidden] = useState(false)
+  const lastY = useRef(0)
+
+  useEffect(() => {
+    lastY.current = window.scrollY
+    let ticking = false
+
+    const update = () => {
+      const y = window.scrollY
+      const goingDown = y > lastY.current
+      // Stay put near the top regardless of direction — only hide once there's real
+      // scroll distance behind it, so a small wobble at the very top doesn't hide it.
+      if (y < 80) {
+        setHidden(false)
+      } else {
+        setHidden(goingDown)
+      }
+      lastY.current = y
+      ticking = false
+    }
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update)
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 border-b border-hairline dark:border-hairline-dark bg-paper/90 dark:bg-ink/90 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b border-hairline dark:border-hairline-dark bg-paper/90 dark:bg-ink/90 backdrop-blur transition-transform duration-300 motion-reduce:transition-none ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
+      }`}
+    >
       <nav className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <Link href="/" className="font-mono text-eyebrow uppercase tracking-wide">
           M Bilal Faisal
