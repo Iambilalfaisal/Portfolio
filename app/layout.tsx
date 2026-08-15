@@ -83,6 +83,9 @@ const themeScript = `
     var stored = localStorage.getItem('theme');
     var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.classList.toggle('dark', dark);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('motion-ready');
+    }
   } catch (e) {}
 })();
 `
