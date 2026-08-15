@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { caseStudies } from '@/lib/content'
 
-const base = 'https://portfolio-pi-peach-78.vercel.app'
+const base = 'https://bilal-faisal.vercel.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
