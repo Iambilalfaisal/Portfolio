@@ -30,6 +30,49 @@ function makeGlowTexture() {
   return new THREE.CanvasTexture(canvas)
 }
 
+// The vault's core — what the node field now orbits and resolves around, instead of an
+// empty origin point. Three nested layers (solid center, two contra-rotating wireframe
+// shells) read as a reactor/schema core without needing a modeled asset — five primitives,
+// three materials, one draw call each.
+function CoreStructure({ progress }: { progress: MutableRefObject<number> }) {
+  const shellRef = useRef<THREE.Mesh>(null)
+  const shell2Ref = useRef<THREE.Mesh>(null)
+  const coreRef = useRef<THREE.Mesh>(null)
+
+  useFrame((state, rawDelta) => {
+    const delta = Math.min(rawDelta, 1 / 30)
+    if (shellRef.current) {
+      shellRef.current.rotation.y += delta * 0.08
+      shellRef.current.rotation.x += delta * 0.02
+    }
+    if (shell2Ref.current) {
+      shell2Ref.current.rotation.y -= delta * 0.05
+      shell2Ref.current.rotation.z += delta * 0.015
+    }
+    if (coreRef.current) {
+      const pulse = 1 + Math.sin(state.clock.elapsedTime * 1.4) * 0.06
+      coreRef.current.scale.setScalar(pulse * (0.9 + progress.current * 0.25))
+    }
+  })
+
+  return (
+    <group>
+      <mesh ref={coreRef}>
+        <icosahedronGeometry args={[0.85, 1]} />
+        <meshBasicMaterial color="#4fc3c0" toneMapped={false} transparent opacity={0.85} />
+      </mesh>
+      <mesh ref={shellRef}>
+        <icosahedronGeometry args={[1.5, 1]} />
+        <meshBasicMaterial color="#4fc3c0" wireframe transparent opacity={0.3} toneMapped={false} />
+      </mesh>
+      <mesh ref={shell2Ref}>
+        <icosahedronGeometry args={[2.1, 0]} />
+        <meshBasicMaterial color="#9aa1af" wireframe transparent opacity={0.15} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
 interface NodeFieldProps {
   progress: MutableRefObject<number>
   nodeCount: number
@@ -175,6 +218,7 @@ export default function NodeField({ progress, nodeCount, role }: NodeFieldProps)
 
   return (
     <group ref={groupRef}>
+      <CoreStructure progress={progress} />
       <instancedMesh ref={meshRef} args={[undefined, undefined, nodeCount]} frustumCulled={false}>
         <sphereGeometry args={[0.09, 10, 10]} />
         <meshBasicMaterial toneMapped={false} />
