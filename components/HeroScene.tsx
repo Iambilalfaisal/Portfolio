@@ -6,6 +6,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import StaticFallback from './scene/StaticFallback'
 import { shouldSkip3D, shouldReduceQuality } from '@/lib/device-capability'
+import type { Role } from './scene/roles'
+import { roleLabel } from './scene/roles'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,8 +18,12 @@ const QUALITY: Record<'full' | 'reduced', { nodeCount: number; dpr: [number, num
   reduced: { nodeCount: 90, dpr: [1, 1] },
 }
 
+const ROLES: Role[] = ['engineer', 'guest']
+
 export default function HeroScene() {
   const [mode, setMode] = useState<'static' | 'full' | 'reduced'>('static')
+  const [role, setRole] = useState<Role>('engineer')
+  const [heroInView, setHeroInView] = useState(true)
   const containerRef = useRef<HTMLDivElement>(null)
   const progress = useRef(0)
 
@@ -45,6 +51,20 @@ export default function HeroScene() {
     return () => clearTimeout(timeout)
   }, [])
 
+  // Drives the role-switcher's visibility directly off whether the hero is actually on
+  // screen, rather than CSS position:sticky — sticky's "containing block" turned out to
+  // release early here (nested inside an absolutely-positioned full-bleed background), and
+  // an explicit observer is easier to reason about and debug than fighting that further.
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => setHeroInView(entry.isIntersecting), {
+      threshold: 0,
+    })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   useEffect(() => {
     if (mode === 'static' || !containerRef.current) return
     const trigger = ScrollTrigger.create({
@@ -61,17 +81,51 @@ export default function HeroScene() {
   const fallBackToStatic = () => setMode('static')
 
   return (
-    <div ref={containerRef} className="w-full h-full" aria-hidden="true">
-      {mode !== 'static' ? (
-        <Scene3D
-          progress={progress}
-          nodeCount={QUALITY[mode].nodeCount}
-          dpr={QUALITY[mode].dpr}
-          onContextLost={fallBackToStatic}
-          onSustainedLowFps={fallBackToStatic}
-        />
-      ) : (
-        <StaticFallback />
+    <div className="relative w-full h-full">
+      {/* The visual itself — canvas or static SVG — carries no information of its own that
+          isn't also stated as text (see the sr-only paragraph in Hero.tsx), so it's hidden
+          from assistive tech entirely. The role switcher below is a real control and lives
+          outside this boundary precisely so it isn't hidden along with the decoration. */}
+      <div ref={containerRef} className="w-full h-full" aria-hidden="true">
+        {mode !== 'static' ? (
+          <Scene3D
+            progress={progress}
+            nodeCount={QUALITY[mode].nodeCount}
+            dpr={QUALITY[mode].dpr}
+            role={role}
+            onContextLost={fallBackToStatic}
+            onSustainedLowFps={fallBackToStatic}
+          />
+        ) : (
+          <StaticFallback role={role} />
+        )}
+      </div>
+
+      {/* Fixed to the viewport, not the hero — otherwise a control positioned near the
+          hero's own top would scroll away long before the (much taller) hero itself, and
+          the resolve sequence it controls, has finished playing out. Only rendered while
+          the hero is actually on screen, so it doesn't linger over later sections. */}
+      {heroInView && (
+        <div className="fixed right-4 top-20 md:right-6 flex items-center gap-2 rounded-lg border border-paper/15 bg-ink/60 backdrop-blur px-3 py-2 z-40">
+          <span className="font-mono text-[11px] uppercase tracking-wide text-paper/60 mr-1">
+            Ask as
+          </span>
+          {ROLES.map((r) => (
+            <button
+              key={r}
+              type="button"
+              aria-pressed={role === r}
+              onClick={() => setRole(r)}
+              className={`font-mono text-[11px] uppercase tracking-wide px-2.5 py-1 rounded-md border transition-colors ${
+                role === r
+                  ? 'border-grounded-dark bg-grounded-dark/20 text-grounded-dark'
+                  : 'border-paper/20 text-paper/60 hover:text-paper hover:border-paper/40'
+              }`}
+            >
+              {roleLabel[r]}
+            </button>
+          ))}
+        </div>
       )}
     </div>
   )
