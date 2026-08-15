@@ -1,6 +1,6 @@
 # Portfolio Website - M Bilal Faisal
 
-Personal portfolio — AI/ML Engineer & Full-Stack Developer | [portfolio-pi-peach-78.vercel.app](https://portfolio-pi-peach-78.vercel.app)
+Personal portfolio — AI/ML Engineer & Full-Stack Developer | [bilal-faisal.vercel.app](https://bilal-faisal.vercel.app)
 
 A modern, elegant, and highly professional portfolio website showcasing production agentic AI / RAG engineering alongside full-stack development.
 

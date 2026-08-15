@@ -24,7 +24,7 @@ const mono = JetBrains_Mono({
   weight: ['400'],
 })
 
-const siteUrl = 'https://portfolio-pi-peach-78.vercel.app'
+const siteUrl = 'https://bilal-faisal.vercel.app'
 const siteTitle = 'M Bilal Faisal — AI/ML Engineer & Full-Stack Developer'
 const siteDescription =
   'Building production RAG and agentic AI systems (LangChain, LangGraph) alongside the ASP.NET Core, React and SQL Server platforms they run inside.'
