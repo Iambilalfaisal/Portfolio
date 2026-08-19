@@ -13,6 +13,7 @@ out
 *.local
 .env
 .env.local
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*

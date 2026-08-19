@@ -34,7 +34,13 @@ export default function StaticFallback({ role = 'engineer' }: { role?: Role }) {
   const resolvedCount = RESOLVED_COUNT_BY_ROLE[role]
 
   return (
-    <svg viewBox="0 0 900 400" className="w-full h-full" role="img" aria-hidden="true">
+    <svg
+      viewBox="0 0 900 400"
+      preserveAspectRatio="xMidYMid slice"
+      className="w-full h-full"
+      role="img"
+      aria-hidden="true"
+    >
       {fieldNodes.map((n) => {
         const refused = refusedIdx.has(n.i)
         return (

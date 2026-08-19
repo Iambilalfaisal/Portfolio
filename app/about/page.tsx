@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Download } from 'lucide-react'
-import { skillCategories, compactProjects } from '@/lib/content'
+import { skillCategories, compactProjects, contactInfo, languages, interests } from '@/lib/content'
 import StatusBadge from '@/components/StatusBadge'
 import Reveal from '@/components/Reveal'
 
@@ -80,6 +80,39 @@ export default function AboutPage() {
             Anthropic, 2026 — Claude Code in Action; Claude Code 101; AI Fluency: Framework and
             Foundations; AI Capabilities and Limitations; Claude 101.
           </p>
+        </div>
+      </Reveal>
+
+      <Reveal>
+        <div className="mb-16 grid sm:grid-cols-2 gap-10">
+          <div>
+            <h2 className="font-mono text-eyebrow uppercase text-grounded dark:text-grounded-dark mb-4">
+              Location &amp; availability
+            </h2>
+            <p className="font-sans text-body text-ink dark:text-paper measure">
+              Based in {contactInfo.location}, available for US-hours overlap. Open to remote
+              full-time roles.
+            </p>
+          </div>
+          <div>
+            <h2 className="font-mono text-eyebrow uppercase text-grounded dark:text-grounded-dark mb-4">
+              Languages
+            </h2>
+            <ul className="font-sans text-body text-ink dark:text-paper space-y-1">
+              {languages.map((lang) => (
+                <li key={lang}>{lang}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal>
+        <div className="mb-16">
+          <h2 className="font-mono text-eyebrow uppercase text-grounded dark:text-grounded-dark mb-4">
+            Outside of work
+          </h2>
+          <p className="font-sans text-body text-ink dark:text-paper measure">{interests}</p>
         </div>
       </Reveal>
 

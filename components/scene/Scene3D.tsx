@@ -25,9 +25,13 @@ function CameraRig({ progress }: { progress: MutableRefObject<number> }) {
     const idleX = Math.sin(t * 0.15) * 0.35 * settle
     const idleY = Math.cos(t * 0.12) * 0.18 * settle
 
+    // Progress now spans the whole home page's scroll range rather than just the hero
+    // band, so these multipliers are bigger than they used to be — the camera needs a
+    // visible arc across a much longer scroll distance, rising and pulling in gradually
+    // through every section rather than resolving within the hero alone.
     const targetX = idleX
-    const targetY = baseY + idleY + progress.current * 0.5
-    const targetZ = baseZ - progress.current * 2.5
+    const targetY = baseY + idleY + progress.current * 1.4
+    const targetZ = baseZ - progress.current * 6
     const damp = 1 - Math.exp(-2 * delta)
     state.camera.position.x += (targetX - state.camera.position.x) * damp
     state.camera.position.y += (targetY - state.camera.position.y) * damp

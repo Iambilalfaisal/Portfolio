@@ -219,21 +219,10 @@ colors: {
 
 ### Form Submission
 
-The contact form currently uses a placeholder submission. To integrate with a service:
-
-1. **EmailJS**:
-   - Sign up at [emailjs.com](https://www.emailjs.com)
-   - Add your service ID and template ID
-   - Update `Contact.tsx` with EmailJS integration
-
-2. **Formspree**:
-   - Sign up at [formspree.io](https://formspree.io)
-   - Get your form endpoint
-   - Update the form action in `Contact.tsx`
-
-3. **Custom Backend**:
-   - Create an API endpoint
-   - Update the `handleSubmit` function in `Contact.tsx`
+The contact form (`components/ContactSection.tsx`) posts to a Next.js API route
+(`app/api/contact/route.ts`) that sends the message over real SMTP via Nodemailer — no
+third-party form service involved. See `SMTP_SETUP.md` for setup instructions
+(Gmail App Password walkthrough, required environment variables, troubleshooting).
 
 ## 📱 Browser Support
 

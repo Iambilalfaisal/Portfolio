@@ -1,16 +1,13 @@
 import Link from 'next/link'
 import { ArrowDown } from 'lucide-react'
-import HeroScene from './HeroScene'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[640px] md:min-h-[85vh] md:max-h-[920px] flex items-end bg-ink">
-      {/* Full-bleed background — absolutely positioned so it never participates in
-          document flow (no CLS risk) and is always a dark surface, independent of the
-          site's light/dark toggle, since it's the scene's own atmosphere. */}
-      <div className="absolute inset-0">
-        <HeroScene />
-      </div>
+    <section id="hero-section" className="relative min-h-[640px] md:min-h-[85vh] md:max-h-[920px] flex items-end">
+      {/* No local canvas anymore — the signature scene is now HomeBackground, a fixed
+          layer shared by the whole home page (see app/page.tsx). The id above is what
+          that component's IntersectionObserver watches to know the hero band is on
+          screen, since it can no longer size its own container to just this section. */}
 
       {/* Scrim: guarantees WCAG AA contrast for the text below regardless of what's
           happening in the scene behind it — text color here is fixed (paper-on-ink),

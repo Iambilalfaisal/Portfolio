@@ -131,7 +131,7 @@ export const experience: ExperienceEntry[] = [
     bullets: [
       'Builds LangChain and LangGraph agentic pipelines inside Nucleus One: multi-step chains, tool-calling agents with custom tool definitions, stateful graphs, and human-in-the-loop approval steps, integrated with the platform’s ASP.NET Core 8 APIs and SQL Server data layer.',
       'Implemented LiveKit voice agents for a real-time AI assistant on a construction-site management platform, building the agent-worker architecture that handles live audio streams and LLM-driven responses over WebRTC.',
-      'Sole engineer on the Project-One module, delivered end to end from SQL Server schema through ASP.NET Core 8 services to the React/TypeScript interface.',
+      'Sole engineer on the Project-One module, delivered end to end from SQL Server schema through ASP.NET Core 8 services to the React/TypeScript interface — ranked second by commit volume across both platform repositories on a seven-person team.',
       'Authored the HR-One service layer and deployed its SQL Server schema; built the platform authentication controller (JWT, RBAC, secure sessions); shipped TimeTrace to production with its backend reporting engine.',
       'Uses Azure AI Foundry for model management and evaluation, and runs Llama 3.1 locally through Ollama for offline inference and pipeline testing.',
     ],
@@ -213,3 +213,23 @@ export const proofPoints = [
   'Sole engineer, Project-One module — database through frontend',
   'Ranked second by commit volume across both platform repositories',
 ]
+
+export const contactInfo = {
+  email: 'Bilalfaisal100@gmail.com',
+  phone: '+92 322 4255722',
+  location: 'Lahore, Pakistan (UTC+5)',
+  github: 'https://github.com/Iambilalfaisal',
+  githubLabel: 'github.com/Iambilalfaisal',
+  linkedin: 'https://linkedin.com/in/ibilalfaisal',
+  linkedinLabel: 'linkedin.com/in/ibilalfaisal',
+}
+
+export const languages = [
+  'English — professional working proficiency',
+  'Urdu — native',
+  'Punjabi — native',
+  'Arabic — reading',
+]
+
+export const interests =
+  'Strength training and distance running, cricket, futsal, badminton, table tennis; reading across behavioural economics, psychology and technology history.'
